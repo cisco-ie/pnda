@@ -2,3 +2,5 @@ http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.4.0/HDP-2.6.4.0
 http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.22/repos/centos7/HDP-UTILS-1.1.0.22-centos7.tar.gz
 http://public-repo-1.hortonworks.com/HDP/ubuntu14/2.x/updates/2.6.4.0/HDP-2.6.4.0-ubuntu14-deb.tar.gz
 http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.22/repos/ubuntu14/HDP-UTILS-1.1.0.22-ubuntu14.tar.gz
+http://public-repo-1.hortonworks.com/HDP/ubuntu16/2.x/updates/2.6.4.0/HDP-2.6.4.0-ubuntu16-deb.tar.gz
+http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.22/repos/ubuntu16/HDP-UTILS-1.1.0.22-ubuntu16.tar.gz

@@ -2,4 +2,6 @@ https://archive.cloudera.com/cdh5/parcels/5.12.1/CDH-5.12.1-1.cdh5.12.1.p0.3-el7
 https://archive.cloudera.com/cdh5/parcels/5.12.1/CDH-5.12.1-1.cdh5.12.1.p0.3-el7.parcel.sha1
 https://archive.cloudera.com/cdh5/parcels/5.12.1/CDH-5.12.1-1.cdh5.12.1.p0.3-trusty.parcel
 https://archive.cloudera.com/cdh5/parcels/5.12.1/CDH-5.12.1-1.cdh5.12.1.p0.3-trusty.parcel.sha1
+https://archive.cloudera.com/cdh5/parcels/5.12.1/CDH-5.12.1-1.cdh5.12.1.p0.3-xenial.parcel
+https://archive.cloudera.com/cdh5/parcels/5.12.1/CDH-5.12.1-1.cdh5.12.1.p0.3-xenial.parcel.sha1
 https://archive.cloudera.com/cdh5/parcels/5.12.1/manifest.json
