@@ -20,6 +20,8 @@
 
 SPARK_VERSION='1.6.0'
 
+OS_RELEASE=$(lsb_release -sc)
+
 # Many Hadoop unit test tools depend on being able to correctly resolve the host to an address.
 # Make sure the result of running hostname is present in the /etc/hosts file
 #
@@ -111,7 +113,7 @@ if [ "x${DISTRO}" == "xrhel" -o "x$DISTRO" == "xcentos" ]; then
 
 elif [[ "${DISTRO}" == "ubuntu" ]]; then
 
-    echo 'deb [arch=amd64] https://deb.nodesource.com/node_6.x trusty main' > /etc/apt/sources.list.d/nodesource.list
+    echo "deb [arch=amd64] https://deb.nodesource.com/node_6.x $OS_RELEASE main" > /etc/apt/sources.list.d/nodesource.list
     curl -L 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key' | apt-key add -
 
     apt-get update -y
