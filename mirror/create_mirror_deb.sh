@@ -9,10 +9,12 @@ OS_VERSION=$(lsb_release -sr)
 OS_ID=$(lsb_release -si)
 OS_SHORT=${OS_ID,,}${OS_VERSION%.*}
 
+DEB_PACKAGE_FILE=${MIRROR_BUILD_DIR}/dependencies/pnda-deb-package-dependencies.txt.${OS_RELEASE}
 DEB_PACKAGE_LIST=$(<${MIRROR_BUILD_DIR}/dependencies/pnda-deb-package-dependencies.txt.${OS_RELEASE})
 
-if [ ! -f "$DEB_PACKAGE_LIST" ];
+if [ -z "$DEB_PACKAGE_LIST" ];
 then
+    echo "Could not load $DEB_PACKAGE_FILE or the file was empty."
     echo "File $DEB_PACKAGE_LIST does not exist."
     exit 1
 fi
@@ -29,11 +31,17 @@ curl -L "http://repo.saltstack.com/apt/ubuntu/${OS_VERSION}/amd64/archive/2015.8
 echo "deb http://public-repo-1.hortonworks.com/ambari/${OS_SHORT}/2.x/updates/2.6.1.0 Ambari main" > /etc/apt/sources.list.d/ambari.list
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
 
+echo "deb http://repo.percona.com/apt xenial main" > /etc/apt/sources.list.d/percona-release.list
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 9334A25F8507EFA5
+
 apt-get -y update
 apt-get -y install apt-transport-https curl dpkg-dev debfoster rng-tools
 
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password cisco'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password cisco'
+debconf-set-selections <<< 'percona-server-server-5.6 percona-server-server/root_password password cisco'
+debconf-set-selections <<< 'percona-server-server-5.6 percona-server-server/root_password_again password cisco'
+
 apt-get -y install $DEB_PACKAGE_LIST
 
 rm -rf $DEB_REPO_DIR
